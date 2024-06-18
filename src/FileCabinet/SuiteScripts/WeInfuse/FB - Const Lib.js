@@ -1,0 +1,393 @@
+/**
+ * @NApiVersion 2.1
+ */
+define([], () => {
+  const RECORDS = {}
+
+  RECORDS.CONFIG = {}
+  RECORDS.CONFIG.ID = 'customrecord_weinfuse_config'
+  RECORDS.CONFIG.FIELDS = {}
+  RECORDS.CONFIG.FIELDS.INTERNALID = 'internalid'
+  RECORDS.CONFIG.FIELDS.ISINACTIVE = 'isinactive'
+  RECORDS.CONFIG.FIELDS.CLIENT_ID = 'custrecord_weinfuse_config_client_id'
+  RECORDS.CONFIG.FIELDS.CLIENT_SECRET = 'custrecord_weinfuse_config_client_secret'
+  RECORDS.CONFIG.FIELDS.URL1 = 'custrecord_weinfuse_config_url1'
+  RECORDS.CONFIG.FIELDS.URL2 = 'custrecord_weinfuse_config_url2'
+  RECORDS.CONFIG.FIELDS.URL3 = 'custrecord_weinfuse_config_url3'
+  RECORDS.CONFIG.FIELDS.VENDOR = 'custrecord_weinfuse_config_vend_healix'
+  RECORDS.CONFIG.FIELDS.IS_CORE = 'custrecord_weinfuse_config_is_core'
+  RECORDS.CONFIG.FIELDS.PREFIX = 'custrecord_weinfuse_config_prefix'
+  RECORDS.CONFIG.FIELDS.CORE_LOCATION = 'custrecord_weinfuse_config_core_loc'
+  RECORDS.CONFIG.FIELDS.ID_REPORT = 'custrecord_weinfuse_config_report1'
+  RECORDS.CONFIG.FIELDS.ID_REPORT_ON_DEMAND = 'custrecord_weinfuse_config_report4'
+  RECORDS.CONFIG.FIELDS.SOURCE_LOCATION = 'custrecord_wi_source_destination_to'
+  RECORDS.CONFIG.FIELDS.LIMIT_RESULTS = 'custrecord_weinfuse_config_limit_res'
+  RECORDS.CONFIG.FIELDS.INCOTERM = 'custrecord_wi_incoterm'
+
+  RECORDS.WEINFUSE = {}
+  RECORDS.WEINFUSE.ID = 'customrecord_weinfuse'
+  RECORDS.WEINFUSE.FIELDS = {}
+  /** Primary information */
+  RECORDS.WEINFUSE.FIELDS.INTERNALID = 'internalid'
+  RECORDS.WEINFUSE.FIELDS.ISINACTIVE = 'isinactive'
+  RECORDS.WEINFUSE.FIELDS.WE_INFUSE = 'custrecord_wi_we_infuse'
+  RECORDS.WEINFUSE.FIELDS.LINE_ID = 'custrecord_wi_line_id'
+  RECORDS.WEINFUSE.FIELDS.TRANID = 'custrecord_wi_tranid'
+  RECORDS.WEINFUSE.FIELDS.CUSTOMER = 'custrecord_wi_customer'
+  RECORDS.WEINFUSE.FIELDS.SUBSIDIARY = 'custrecord_wi_subsidiary'
+  RECORDS.WEINFUSE.FIELDS.CUSTOMER_CATEGORY = 'custrecord_wi_cust_category'
+  RECORDS.WEINFUSE.FIELDS.LOCATION = 'custrecord_wi_location'
+  RECORDS.WEINFUSE.FIELDS.SHIP_TO = 'custrecord_wi_ship_to'
+  RECORDS.WEINFUSE.FIELDS.ITEM = 'custrecord_wi_item'
+  RECORDS.WEINFUSE.FIELDS.PURCHASE_UNIT = 'custrecord_wi_purchase_unit'
+  RECORDS.WEINFUSE.FIELDS.PURCHASE_UNIT_ID = 'custrecord_wi_purchase_unit_id'
+  RECORDS.WEINFUSE.FIELDS.UNIT_TYPE = 'custrecord_wi_unitstype'
+  RECORDS.WEINFUSE.FIELDS.NDC = 'custrecord_wi_ndc'
+  RECORDS.WEINFUSE.FIELDS.UNIT = 'custrecord_wi_unit'
+  RECORDS.WEINFUSE.FIELDS.QUANTITY = 'custrecord_wi_quantity'
+  RECORDS.WEINFUSE.FIELDS.PRICE = 'custrecord_wi_price'
+  RECORDS.WEINFUSE.FIELDS.DATE = 'custrecord_wi_date'
+  RECORDS.WEINFUSE.FIELDS.VENDOR = 'custrecord_wi_vendor'
+  RECORDS.WEINFUSE.FIELDS.EXPIRATION = 'custrecord_wi_expiration'
+  RECORDS.WEINFUSE.FIELDS.TYPE = 'custrecord_wi_type'
+  RECORDS.WEINFUSE.FIELDS.IA = 'custrecord_wi_ia'
+  RECORDS.WEINFUSE.FIELDS.PO = 'custrecord_wi_po'
+  RECORDS.WEINFUSE.FIELDS.TO = 'custrecord_wi_to'
+  RECORDS.WEINFUSE.FIELDS.SO = 'custrecord_wi_so'
+  RECORDS.WEINFUSE.FIELDS.RECEIPT = 'custrecord_wi_receipt'
+  RECORDS.WEINFUSE.FIELDS.FULFILLMENT = 'custrecord_wi_fulfillment'
+  RECORDS.WEINFUSE.FIELDS.STATUS = 'custrecord_wi_status'
+  RECORDS.WEINFUSE.FIELDS.STATUS_STAGE = 'custrecord_wi_status_stage'
+  RECORDS.WEINFUSE.FIELDS.ERRORS = 'custrecord_wi_errors'
+  RECORDS.WEINFUSE.FIELDS.STAGING = 'custrecord_wi_staging'
+  RECORDS.WEINFUSE.FIELDS.LOT = 'custrecord_wi_lot'
+  RECORDS.WEINFUSE.FIELDS.OBJECT_LINE = 'custrecord_wi_object_line'
+  RECORDS.WEINFUSE.FIELDS.ON_ERROR = 'custrecord_wi_on_error'
+  /** Looker Information  */
+  RECORDS.WEINFUSE.FIELDS.GROUP_ID = 'custrecord_wi_group_id'
+  RECORDS.WEINFUSE.FIELDS.GROUP_NAME = 'custrecord_wi_group_name'
+  RECORDS.WEINFUSE.FIELDS.LOCATION_ID = 'custrecord_wi_location_id'
+  RECORDS.WEINFUSE.FIELDS.LOCATION_NAME = 'custrecord_wi_location_name'
+  RECORDS.WEINFUSE.FIELDS.OUTER_NDC = 'custrecord_wi_outer_ndc'
+  RECORDS.WEINFUSE.FIELDS.PO_ID = 'custrecord_wi_po_id'
+  RECORDS.WEINFUSE.FIELDS.ORDER_NUMBER = 'custrecord_wi_order_number'
+  RECORDS.WEINFUSE.FIELDS.PO_NUMBER = 'custrecord_wi_po_number'
+  RECORDS.WEINFUSE.FIELDS.INV_ADJ_ID = 'custrecord_wi_inv_adj_id'
+  RECORDS.WEINFUSE.FIELDS.DATE_RECEIVED = 'custrecord_wi_date_received'
+  RECORDS.WEINFUSE.FIELDS.VENDOR_NAME = 'custrecord_wi_vendor_name'
+  RECORDS.WEINFUSE.FIELDS.NDC_NAME = 'custrecord_wi_ndc_name'
+  RECORDS.WEINFUSE.FIELDS.PO_TYPE = 'custrecord_wi_po_type'
+  RECORDS.WEINFUSE.FIELDS.REPROCESSING = 'custrecord_wi_to_reprocessing'
+  RECORDS.WEINFUSE.FIELDS.BACKORDER = 'custrecord_wi_back_order'
+
+  RECORDS.LOCATION = {}
+  RECORDS.LOCATION.FIELDS = {}
+  RECORDS.LOCATION.FIELDS.INTERNALID = 'internalid'
+  RECORDS.LOCATION.FIELDS.NAME = 'name'
+  RECORDS.LOCATION.FIELDS.ISINACTIVE = 'isinactive'
+  RECORDS.LOCATION.FIELDS.CUSTOMER = 'custrecord_tkio_customer_loc.entityid'
+  RECORDS.LOCATION.FIELDS.SUBSIDIARY = 'subsidiary'
+  RECORDS.LOCATION.FIELDS.SHIPTO = 'custrecord_tkio_hl_ship_to_add'
+
+  RECORDS.ITEM = {}
+  RECORDS.ITEM.FIELDS = {}
+  RECORDS.ITEM.FIELDS.INTERNALID = 'internalid'
+  RECORDS.ITEM.FIELDS.NAME = 'itemid'
+  RECORDS.ITEM.FIELDS.ALT_NAME = 'custitem_tkio_alternative_ndc'
+  RECORDS.ITEM.FIELDS.ISINACTIVE = 'isinactive'
+  RECORDS.ITEM.FIELDS.PURCHASE_UNIT = 'purchaseunit'
+  RECORDS.ITEM.FIELDS.UNIT_TYPE = 'unitstype'
+
+  RECORDS.CUSTOMER = {}
+  RECORDS.CUSTOMER.FIELDS = {}
+  RECORDS.CUSTOMER.FIELDS.ISINACTIVE = 'isinactive'
+  RECORDS.CUSTOMER.FIELDS.INTERNALID = 'internalid'
+  RECORDS.CUSTOMER.FIELDS.NAME = 'entityid'
+  RECORDS.CUSTOMER.FIELDS.CATEGORY = 'category'
+  RECORDS.CUSTOMER.FIELDS.SUBSIDIARY = 'subsidiary'
+
+  RECORDS.SHIPTO = {}
+  RECORDS.SHIPTO.FIELDS = {}
+  RECORDS.SHIPTO.FIELDS.ID = 'internalid'
+  RECORDS.SHIPTO.FIELDS.ISINACTIVE = 'isinactive'
+  RECORDS.SHIPTO.FIELDS.INTERNALID = 'addressinternalid'
+  RECORDS.SHIPTO.FIELDS.ADDRESS_LABEL = 'addresslabel'
+  RECORDS.SHIPTO.FIELDS.CATEGORY = 'category'
+  RECORDS.SHIPTO.FIELDS.SUBSIDIARY = 'subsidiary'
+
+  RECORDS.SHIPTO_ACCOUNT = {}
+  RECORDS.SHIPTO_ACCOUNT.ID = 'customrecord_tkio_ship_to_acc_rcrd'
+  RECORDS.SHIPTO_ACCOUNT.FIELDS = {}
+  RECORDS.SHIPTO_ACCOUNT.FIELDS.LOCATION = 'custrecord_tkio_location'
+  RECORDS.SHIPTO_ACCOUNT.FIELDS.CUSTOMER = 'custrecord_tkio_customer'
+  RECORDS.SHIPTO_ACCOUNT.FIELDS.VENDOR = 'custrecord_tkio_vendor'
+  RECORDS.SHIPTO_ACCOUNT.FIELDS.ACCOUNT = 'custrecord_tkio_ship_to_num'
+
+  RECORDS.VENDOR = {}
+  RECORDS.VENDOR.FIELDS = {}
+  RECORDS.VENDOR.FIELDS.ISINACTIVE = 'isinactive'
+  RECORDS.VENDOR.FIELDS.INTERNALID = 'internalid'
+  RECORDS.VENDOR.FIELDS.NAME = 'entityid'
+  RECORDS.VENDOR.FIELDS.CATEGORY = 'category'
+  RECORDS.VENDOR.FIELDS.REPRESENTING = 'representingsubsidiary'
+
+  RECORDS.WI_LOG = {}
+  RECORDS.WI_LOG.ID = 'customrecord_weinfuse_log'
+  RECORDS.WI_LOG.FIELDS = {}
+  RECORDS.WI_LOG.FIELDS.START = 'custrecord_wi_log_start'
+  RECORDS.WI_LOG.FIELDS.END = 'custrecord_wi_log_end'
+
+  RECORDS.LOG_LINES = {}
+  RECORDS.LOG_LINES.ID = 'customrecord_weinfuse_log_action'
+  RECORDS.LOG_LINES.FIELDS = {}
+  RECORDS.LOG_LINES.FIELDS.NAME = 'name'
+  RECORDS.LOG_LINES.FIELDS.LOG_MAIN = 'custrecord_wi_log_main'
+  RECORDS.LOG_LINES.FIELDS.DETAILS = 'custrecord_wi_log_details'
+
+  const JSON_STRUCTURE = {}
+  JSON_STRUCTURE.GROUP_ID = 'group.id'
+  JSON_STRUCTURE.GROUP_NAME = 'group.name'
+  JSON_STRUCTURE.LOCATIONS_ID = 'locations.id'
+  JSON_STRUCTURE.LOCATIONS_NAME = 'locations.name'
+  JSON_STRUCTURE.PURCHASE_ORDERS_ID = 'purchase_orders.id'
+  JSON_STRUCTURE.PURCHASE_ORDERS_ORDER_NUMBER = 'purchase_orders.order_number'
+  JSON_STRUCTURE.PURCHASE_ORDERS_PO_NUMBER = 'purchase_orders.po_number'
+  JSON_STRUCTURE.PURCHASE_ORDERS_INVENTORY_ADJUSTMENT_ID = 'purchase_orders.inventory_adjustment_id'
+  JSON_STRUCTURE.PURCHASE_ORDERS_ORDER_METHOD = 'purchase_orders.order_method'
+  JSON_STRUCTURE.PURCHASE_ORDERS_ORDER_DATE = 'purchase_orders.order_date'
+  JSON_STRUCTURE.PURCHASE_ORDERS_DATE_RECEIVED_DATE = 'purchase_orders.date_received_date'
+  JSON_STRUCTURE.PURCHASE_ORDERS_CHECKED_IN_USER_NAME = 'purchase_orders.checked_in_user_name'
+  JSON_STRUCTURE.PURCHASE_ORDERS_VENDOR_ID = 'purchase_orders.vendor_id'
+  JSON_STRUCTURE.VENDORS_NAME = 'vendors.name'
+  JSON_STRUCTURE.LINE_ITEMS_PRODUCT_ID = 'line_items.product_id'
+  JSON_STRUCTURE.LINE_ITEMS_BACKORDERED = 'line_items.backordered'
+  JSON_STRUCTURE.FORMULARY_ENTRIES_NAME = 'formulary_entries.name'
+  JSON_STRUCTURE.NDCS_LABEL_NAME = 'ndcs.label_name'
+  JSON_STRUCTURE.INVENTORY_ITEMS_NDC_CODE = 'inventory_items.ndc_code'
+  JSON_STRUCTURE.INVENTORY_ITEMS_OUTER_NDC_CODE = 'billings.outer_ndc_code'
+  JSON_STRUCTURE.LINE_ITEMS_PRICE = 'line_items.price'
+  JSON_STRUCTURE.LINE_ITEMS_EXPIRATION_DATE = 'line_items.expiration_date'
+  JSON_STRUCTURE.LINE_ITEMS_CREATED_DATE = 'line_items.created_date'
+  JSON_STRUCTURE.LINE_ITEMS_LOT = 'line_items.lot'
+  JSON_STRUCTURE.PURCHASE_ORDERS_TYPE = 'purchase_orders.type'
+  JSON_STRUCTURE.LINE_ITEMS_ID = 'line_items.id'
+  JSON_STRUCTURE.INVENTORY_ITEMS_INVENTORY_ITEM_ID = 'inventory_items.inventory_item_id'
+  JSON_STRUCTURE.LINE_ITEMS_QTY = 'line_items.qty'
+  JSON_STRUCTURE.LINE_ITEMS_CREATED_TIME = 'line_items.created_time'
+  JSON_STRUCTURE.LINE_ITEMS_UPDATED_TIME = 'line_items.updated_time'
+  JSON_STRUCTURE.INVENTORY_ITEMS_CREATED_TIME = 'inventory_items.created_time'
+  JSON_STRUCTURE.INVENTORY_ITEMS_UPDATED_TIME = 'inventory_items.updated_time'
+
+  const LIST = {}
+
+  LIST.WEINFUSE_STATUS = {}
+  LIST.WEINFUSE_STATUS.ID = 'customlist_weinfuse_status'
+  LIST.WEINFUSE_STATUS.FIELDS = {}
+  LIST.WEINFUSE_STATUS.FIELDS.INTERNALID = 'internalid'
+  LIST.WEINFUSE_STATUS.FIELDS.NAME = 'name'
+
+  LIST.WEINFUSE_ERRORS = {}
+  LIST.WEINFUSE_ERRORS.ID = 'customlist_weinfuse_errors'
+  LIST.WEINFUSE_ERRORS.FIELDS = {}
+  LIST.WEINFUSE_ERRORS.FIELDS.INTERNALID = 'internalid'
+  LIST.WEINFUSE_ERRORS.FIELDS.NAME = 'name'
+
+  LIST.WEINFUSE_TYPE_TRANSACTION = {}
+  LIST.WEINFUSE_TYPE_TRANSACTION.ID = 'customlist_weinfuse_type_transaction'
+  LIST.WEINFUSE_TYPE_TRANSACTION.FIELDS = {}
+  LIST.WEINFUSE_TYPE_TRANSACTION.FIELDS.INTERNALID = 'internalid'
+  LIST.WEINFUSE_TYPE_TRANSACTION.FIELDS.NAME = 'name'
+
+  LIST.UNIT_TYPE = {}
+  LIST.UNIT_TYPE.FIELDS = {}
+  LIST.UNIT_TYPE.FIELDS.INTERNALID = 'internalid'
+  LIST.UNIT_TYPE.FIELDS.UNITNAME = 'unitname'
+  LIST.UNIT_TYPE.FIELDS.CONVERSIONRATE = 'conversionrate'
+
+  const CONST_CACHE = {}
+  CONST_CACHE.KEY = 'log_id_cache'
+
+  const STATUS = {}
+  STATUS.PENDING = 'Pending'
+  STATUS.ERROR = 'Error'
+  STATUS.PROCESSED = 'Processed'
+  STATUS.CLOSED = 'Transaction closed'
+  STATUS.NOT_PENDING = 'Pending to fulfill'
+  STATUS.NOT_APPROVED = 'Order not approved'
+
+  const ERRORS = {}
+  ERRORS.ITEM_NOT_FOUND = 'Item not found'
+  ERRORS.ITEM_DUPLICATED = 'Item duplicated'
+  ERRORS.INACTIVE_ITEM = 'Inactive item'
+  ERRORS.LOCATION_NOT_FOUND = 'Location not found'
+  ERRORS.LOCATION_DUPLICATED = 'Location duplicated'
+  ERRORS.INACTIVE_LOCATION = 'Inactive location'
+  ERRORS.CUSTOMER_NOT_FOUND = 'Customer not found'
+  ERRORS.CUSTOMER_DUPLICATED = 'Customer duplicated'
+  ERRORS.INACTIVE_CUSTOMER = 'Inactive customer'
+  ERRORS.VENDOR_NOT_FOUND = 'Vendor not found'
+  ERRORS.VENDOR_DUPLICATED = 'Vendor duplicated'
+  ERRORS.INACTIVE_VENDOR = 'Inactive vendor'
+  ERRORS.SHIP_TO_NOT_FOUND = 'Ship to not found'
+  ERRORS.SHIP_TO_DUPLICATED = 'Ship to duplicated'
+  ERRORS.INACTIVE_SHIP_TO = 'Inactive Ship to'
+  ERRORS.UNIT_NOT_FOUND = 'Unit not found'
+  ERRORS.NOT_DATE_RECEIVE = 'No Receipt Date'
+  ERRORS.LOT_NOT_FOUND = 'Lot not found'
+  ERRORS.NOT_EXPIRATION_DATE = 'Not expiration date'
+  ERRORS.SHIP_ACCOUNT_NOT_FOUND = 'Ship To Account Not Found'
+  ERRORS.SHIP_ACCOUNT_DUPLICATED = 'Ship To Account Duplicated'
+  ERRORS.LOT_MISMATCH = 'Lot Mismatch'
+  ERRORS.LOT_MUST_HAVE_FULFILL = 'Lot numbers on a transfer order receipt must have been fulfilled'
+  ERRORS.FULFILL_DATE_HIGHER = 'Fulfillment Date Higher Than Receipt Date'
+  ERRORS.ERROR = 'Error when creating the transaction'
+
+  const KEY_POSITIONS = {}
+  KEY_POSITIONS.GROUP_ID = 0
+  KEY_POSITIONS.GROUP_NAME = 1
+  KEY_POSITIONS.DATE = 2
+  KEY_POSITIONS.TRANSACTION_ID = 3
+
+  const TRANSACTIONS = {}
+
+  /** Purchase Order */
+  TRANSACTIONS.PURCHASE_ORDER = {}
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS = {}
+  /** Main Line Fields */
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.MAIN = {}
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.MAIN.TRANID = 'tranid'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.MAIN.ENTITY = 'entity'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.MAIN.SUBSIDIARY = 'subsidiary'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.MAIN.SHIPTO = 'shipto'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.MAIN.SHIPTOADRESSLIST = 'shipaddresslist'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.MAIN.LOCATION = 'location'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.MAIN.TRANDATE = 'trandate'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.MAIN.WI_PURCHASE_NUMBER = 'custbody_tkio_wi_purchase_number'
+  /** Sublist Fields */
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.LIST = {}
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.LIST.ITEM = 'item'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.LIST.QUANTITY = 'quantity'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.LIST.AMOUNT = 'amount'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.LIST.UNITS = 'units'
+  TRANSACTIONS.PURCHASE_ORDER.FIELDS.LIST.LINE_ID = 'custcol_wi_line_id'
+
+  /** Sales Order */
+  TRANSACTIONS.SALES_ORDER = {}
+  TRANSACTIONS.SALES_ORDER.FIELDS = {}
+  /** Main Line Fields */
+  TRANSACTIONS.SALES_ORDER.FIELDS.MAIN = {}
+  TRANSACTIONS.SALES_ORDER.FIELDS.MAIN.TRANID = 'tranid'
+  TRANSACTIONS.SALES_ORDER.FIELDS.MAIN.ENTITY = 'entity'
+  TRANSACTIONS.SALES_ORDER.FIELDS.MAIN.SUBSIDIARY = 'subsidiary'
+  TRANSACTIONS.SALES_ORDER.FIELDS.MAIN.LOCATION = 'location'
+  TRANSACTIONS.SALES_ORDER.FIELDS.MAIN.TRANDATE = 'trandate'
+  TRANSACTIONS.SALES_ORDER.FIELDS.MAIN.TRANDATE = 'trandate'
+  TRANSACTIONS.SALES_ORDER.FIELDS.MAIN.SHIPTOADRESSLIST = 'shipaddresslist'
+  TRANSACTIONS.SALES_ORDER.FIELDS.MAIN.WI_PURCHASE_NUMBER = 'custbody_tkio_wi_purchase_number'
+  /** Sublist Fields */
+  TRANSACTIONS.SALES_ORDER.FIELDS.LIST = {}
+  TRANSACTIONS.SALES_ORDER.FIELDS.LIST.ITEM = 'item'
+  TRANSACTIONS.SALES_ORDER.FIELDS.LIST.QUANTITY = 'quantity'
+  TRANSACTIONS.SALES_ORDER.FIELDS.LIST.AMOUNT = 'amount'
+  TRANSACTIONS.SALES_ORDER.FIELDS.LIST.UNITS = 'units'
+  TRANSACTIONS.SALES_ORDER.FIELDS.LIST.CREATEDPO = 'createdpo'
+  TRANSACTIONS.SALES_ORDER.FIELDS.LIST.POVENDOR = 'povendor'
+  TRANSACTIONS.SALES_ORDER.FIELDS.LIST.LINE_ID = 'custcol_wi_line_id'
+
+  /** Transfer Order */
+  TRANSACTIONS.TRANSFER_ORDER = {}
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS = {}
+  /** Main Line Fields */
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.MAIN = {}
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.MAIN.CUSTOMER = 'customer'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.MAIN.TRANID = 'tranid'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.MAIN.SUBSIDIARY = 'subsidiary'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.MAIN.TO_SUBSIDIARY = 'tosubsidiary'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.MAIN.FROMLOCATION = 'location'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.MAIN.TOLOCATION = 'transferlocation'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.MAIN.INCOTERM = 'incoterm'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.MAIN.TRANDATE = 'trandate'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.MAIN.PURCHASE_NUMBER = 'custbody_tkio_wi_purchase_number'
+  /** Sublist Fields */
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.LIST = {}
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.LIST.ITEM = 'item'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.LIST.QUANTITY = 'quantity'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.LIST.AMOUNT = 'amount'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.LIST.UNITS = 'units'
+  TRANSACTIONS.TRANSFER_ORDER.FIELDS.LIST.LINE_ID = 'custcol_wi_line_id'
+
+  /** Inventory Adjustment */
+  TRANSACTIONS.INVENTORY_ADJUSTMENT = {}
+  TRANSACTIONS.INVENTORY_ADJUSTMENT.FIELDS = {}
+  /** Main Line Fields */
+  TRANSACTIONS.INVENTORY_ADJUSTMENT.FIELDS.MAIN = {}
+  TRANSACTIONS.INVENTORY_ADJUSTMENT.FIELDS.MAIN.CUSTOMER = 'customer'
+  TRANSACTIONS.INVENTORY_ADJUSTMENT.FIELDS.MAIN.LOCATION = 'location'
+  TRANSACTIONS.INVENTORY_ADJUSTMENT.FIELDS.MAIN.TRANDATE = 'trandate'
+  TRANSACTIONS.INVENTORY_ADJUSTMENT.FIELDS.MAIN.WI_PURCHASE_NUMBER = 'custbody_tkio_wi_purchase_number'
+  /** Sublist Fields */
+  TRANSACTIONS.INVENTORY_ADJUSTMENT.FIELDS.LIST = {}
+  TRANSACTIONS.INVENTORY_ADJUSTMENT.FIELDS.LIST.ITEM = 'item'
+  TRANSACTIONS.INVENTORY_ADJUSTMENT.FIELDS.LIST.QUANTITY = 'quantity'
+  TRANSACTIONS.INVENTORY_ADJUSTMENT.FIELDS.LIST.LINE_ID = 'custcol_wi_line_id'
+
+  /** Item Receipt */
+  TRANSACTIONS.ITEM_RECEIPT = {}
+  /** Main Line Fields */
+  TRANSACTIONS.ITEM_RECEIPT.MAIN = {}
+  TRANSACTIONS.ITEM_RECEIPT.MAIN.DATE = 'trandate'
+  TRANSACTIONS.ITEM_RECEIPT.MAIN.LOCATION = 'location'
+  /** Sublist Fields */
+  TRANSACTIONS.ITEM_RECEIPT.LIST = {}
+  TRANSACTIONS.ITEM_RECEIPT.LIST.ITEM = 'item'
+  TRANSACTIONS.ITEM_RECEIPT.LIST.ITEMRECEIVE = 'itemreceive'
+  TRANSACTIONS.ITEM_RECEIPT.LIST.QUANTITY = 'quantity'
+  TRANSACTIONS.ITEM_RECEIPT.LIST.QUANTITY_AVAILABLE = 'quantityavailable'
+  TRANSACTIONS.ITEM_RECEIPT.LIST.LOCATION = 'location'
+  TRANSACTIONS.ITEM_RECEIPT.LIST.INVENTORYDETAIL = 'inventorydetail'
+  TRANSACTIONS.ITEM_RECEIPT.LIST.INVENTORYASSIGNMENT = 'inventoryassignment'
+  TRANSACTIONS.ITEM_RECEIPT.LIST.RECEIPTINVENTORYNUMBER = 'receiptinventorynumber'
+  TRANSACTIONS.ITEM_RECEIPT.LIST.EXPIRATIONDATE = 'expirationdate'
+  TRANSACTIONS.ITEM_RECEIPT.LIST.LINE_ID = 'custcol_wi_line_id'
+
+  /* The above code is a JavaScript comment. It is not doing anything in terms of code execution. It is
+  used to provide information or explanations about the code to other developers. */
+  /** Item Fulfillment */
+  TRANSACTIONS.ITEM_FULFILLMENT = {}
+  /** Main Line Fields */
+  TRANSACTIONS.ITEM_FULFILLMENT.MAIN = {}
+  TRANSACTIONS.ITEM_FULFILLMENT.MAIN.DATE = 'trandate'
+  /** Sublist Fields */
+  TRANSACTIONS.ITEM_FULFILLMENT.LIST = {}
+  TRANSACTIONS.ITEM_FULFILLMENT.LIST.ITEM = 'item'
+  TRANSACTIONS.ITEM_FULFILLMENT.LIST.ITEMRECEIVE = 'itemreceive'
+  TRANSACTIONS.ITEM_FULFILLMENT.LIST.LOCATION = 'location'
+  TRANSACTIONS.ITEM_FULFILLMENT.LIST.QUANTITY = 'quantity'
+  TRANSACTIONS.ITEM_FULFILLMENT.LIST.LINE_ID = 'custcol_wi_line_id'
+
+  const ALERTS = {}
+  ALERTS.INIT_MESSAGE = { type: '', title: 'Default', message: 'Init message module' }
+  ALERTS.NOT_DATA_REPROCESSING = {
+    type: 'warning',
+    title: 'Warning',
+    message: "You're need check a line to init process",
+    duration: 10000
+  }
+  ALERTS.PROCESSING = {
+    type: 'information',
+    title: 'Processing',
+    message: "Don't close the window, the information will be processed. <br> <small><b>Note</b>: Recharge the window to see the status.</small>"
+  }
+  ALERTS.ERROR_ON_REPROCESSING = {
+    type: 'error',
+    title: 'Error',
+    message: 'An error has occurred when processing the information'
+  }
+  ALERTS.COMPLETE_TASK = {
+    type: 'confirmation',
+    title: 'Complete',
+    message: 'The processes is completed'
+  }
+
+  return { JSON_STRUCTURE, RECORDS, LIST, CONST_CACHE, STATUS, KEY_POSITIONS, TRANSACTIONS, ALERTS, ERRORS }
+})
